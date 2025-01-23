@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  postgresql:
+    build: ./PostgreSQL
+    ports:
+      - "5482:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: ventasdb
+    volumes: 
+      - ./PostgreSQL/volume:/var/lib/postgresql/data  
+    networks:
+      - backend-network
+
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresql
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgresql:5432/ventasdb
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+    networks:
+      - backend-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
