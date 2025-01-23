@@ -20,9 +20,6 @@ crea dentro de la carpeta PostgreSQL.
 Acceder a la carpeta Fullstack y ejecutar el siguiente comando:
 ### docker-compose up --build
 
-Para bajar el proyecto:
-### docker-compose down
-
 Luego esperar a que se descarguen las imágenes de los contenedores y se copien los archivos:
 ![Inicio](./screenshots/inicio.png)
 
