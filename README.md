@@ -48,6 +48,10 @@ Ventas: Detalle de ventas
 ![Productos](./screenshots/productos.PNG)
 ![Ventas](./screenshots/ventas.PNG)
 
+## API
+Los endpoints del backend se pueden probar mediante Swagger UI:
+[http://localhost:8080/siman/swagger-ui/index.html](http://localhost:8080/siman/swagger-ui/index.html)
+
 ## Finalizar proyecto
 Para bajar el proyecto:
 ### docker-compose down
